@@ -13,6 +13,38 @@
   </head>
 
   <body>
+   
+    <audio id="bgMusic" loop>
+  <source src="Davido-Assurance-(TrendyBeatz.com).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+    <script>
+  const music = document.getElementById("bgMusic");
+
+  document.body.addEventListener("click", () => {
+    // Start music at 0 volume
+    music.volume = 0;
+    music.play();
+
+    // Gradually increase volume to 1 (fade-in)
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.01; // adjust for faster/slower fade
+        music.volume = vol;
+      } else {
+        clearInterval(fadeIn); // stop when full volume reached
+      }
+    }, 50); // change volume every 50ms
+  }, { once: true }); // only triggers on first click
+</script>
+
+
+
+
+
     <div class="container">
       <div class="one">
         <h1 class="one">
